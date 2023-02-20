@@ -1,16 +1,36 @@
 package com.example.dependencyinjectionusingdagger2;
 
+import android.util.Log;
+
 import javax.inject.Inject;
 
 public class Coffee {
-    private Farm farm;
-    private River river;
 
-
+    // field injection
     @Inject
-    public Coffee(Farm farm, River river) {
-        this.farm = farm;
+    Farm farm;
+
+    River river;
+
+
+
+    // constructor injection
+    @Inject
+    public Coffee(River river) {
         this.river = river;
+    }
+
+    String TAG = "Coffee";
+
+    // method injection
+    // this function automatically will be called
+    @Inject
+    public void connectElectricity(){
+        Log.d(TAG, "Abdo connectElectricity: connecting.... method injection");
+    }
+
+    public String getCoffeeCup(){
+        return farm.getBeans() +"+"+river.getWater();
     }
 
 
