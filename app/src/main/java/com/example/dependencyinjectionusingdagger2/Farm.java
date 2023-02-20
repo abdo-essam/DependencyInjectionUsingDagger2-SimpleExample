@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 
-
+@Singleton
 public class Farm {
     String TAG ="Farm";
     @Inject

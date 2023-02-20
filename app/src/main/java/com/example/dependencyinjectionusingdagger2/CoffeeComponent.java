@@ -4,17 +4,17 @@ package com.example.dependencyinjectionusingdagger2;
 
 
 import dagger.BindsInstance;
-import dagger.Component;
+import dagger.Subcomponent;
 
 @ActivityScope
-@Component(dependencies = AppComponent.class)
+@Subcomponent()
 public interface CoffeeComponent {
     Coffee getCoffee();
     void inject(MainActivity mainActivity);
 
 
 
-    @Component.Builder
+    @Subcomponent.Builder
     interface Builder{
 
         // qualifiers diff between two objects if it from the same type
@@ -24,7 +24,6 @@ public interface CoffeeComponent {
         @BindsInstance
         Builder milk(@Milk int milk);
 
-        Builder appComponent(AppComponent appComponent);
         CoffeeComponent build();
     }
 }
