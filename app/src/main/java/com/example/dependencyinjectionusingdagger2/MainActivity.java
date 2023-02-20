@@ -1,5 +1,7 @@
 package com.example.dependencyinjectionusingdagger2;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.util.Log;
 
@@ -7,7 +9,8 @@ import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
     @Inject
-    Coffee coffee ;
+    Coffee coffee, coffee2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,13 +22,10 @@ public class MainActivity extends AppCompatActivity {
         String TAG = "MainActivity";
 
 
-        CoffeeComponent component = DaggerCoffeeComponent.builder().sugar(16).milk(8).build();
+        CoffeeComponent component = ((MainApplication) getApplication()).getComponent();
         component.inject(this);
 
 
-
-
-
-        Log.d(TAG, "Abdo onCreate: " + coffee.getCoffeeCup());
+        Log.d(TAG, "Abdo onCreate: " + coffee.getCoffeeCup() + "\n river for coffee 1 :" + coffee.river + "\n river for coffee 2 :" + coffee2.river);
     }
 }
