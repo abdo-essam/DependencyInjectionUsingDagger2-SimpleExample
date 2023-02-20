@@ -11,12 +11,11 @@ public class Coffee {
     Farm farm;
 
     River river;
-
-
-
-    // constructor injection
+    int sugar ;
     @Inject
-    public Coffee(River river) {
+    public Coffee(River river,int sugar)
+    {
+        this.sugar = sugar;
         this.river = river;
     }
 
@@ -30,7 +29,7 @@ public class Coffee {
     }
 
     public String getCoffeeCup(){
-        return farm.getBeans() +"+"+river.getWater();
+        return farm.getBeans() +"+"+river.getWater() +" sugar: "+ sugar;
     }
 
 

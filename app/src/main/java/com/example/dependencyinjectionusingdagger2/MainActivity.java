@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
       /*  CoffeeComponent component  = DaggerCoffeeComponent.create();
         component.getCoffee();*/
         String TAG = "MainActivity";
-        CoffeeComponent component = DaggerCoffeeComponent.create();
+        CoffeeComponent component = DaggerCoffeeComponent.builder().coffeeModule(new CoffeeModule(5)).build();
         component.inject(this);
         Log.d(TAG, "Abdo onCreate: " + coffee.getCoffeeCup());
     }
