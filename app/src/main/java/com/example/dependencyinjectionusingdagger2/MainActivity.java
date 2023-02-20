@@ -22,10 +22,12 @@ public class MainActivity extends AppCompatActivity {
         String TAG = "MainActivity";
 
 
-        CoffeeComponent component = ((MainApplication) getApplication()).getComponent();
-        component.inject(this);
+        AppComponent component = ((MainApplication) getApplication()).getAppComponent();
+        CoffeeComponent coffeeComponent = DaggerCoffeeComponent.builder().milk(4).sugar(5).appComponent(component).build();
+        coffeeComponent.inject(this);
 
 
-        Log.d(TAG, "Abdo onCreate: " + coffee.getCoffeeCup() + "\n river for coffee 1 :" + coffee.river + "\n river for coffee 2 :" + coffee2.river);
+        Log.d(TAG, "Abdo onCreate: " + "\n coffee 1 " + coffee + "\n coffee 2 " + coffee2 +
+                "\n river for coffee 1 :" + coffee.river + "\n river for coffee 2 :" + coffee2.river);
     }
 }

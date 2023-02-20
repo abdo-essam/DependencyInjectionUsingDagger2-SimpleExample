@@ -4,7 +4,10 @@ import android.util.Log;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.inject.Singleton;
 
+
+@ActivityScope
 public class Coffee {
 
     // field injection

@@ -3,14 +3,16 @@ package com.example.dependencyinjectionusingdagger2;
 import android.app.Application;
 
 public class MainApplication  extends Application {
-    private CoffeeComponent coffeeComponent ;
+    private AppComponent appComponent ;
     @Override
     public void onCreate() {
         super.onCreate();
-        coffeeComponent = DaggerCoffeeComponent.builder().sugar(16).milk(8).build();
+        appComponent = DaggerAppComponent.create();
     }
 
-    public CoffeeComponent getComponent() {
-        return coffeeComponent;
+    public AppComponent getAppComponent() {
+        return appComponent;
     }
+
+
 }
