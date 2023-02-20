@@ -6,9 +6,10 @@ import javax.inject.Inject;
 
 public class River {
     String TAG = "River";
-    @Inject
+
+    // for view
     public River(){
-        Log.d(TAG, "Abdo River: constructor injection");
+        Log.d(TAG, "Abdo River: Module");
     }
     public String getWater(){
         return "Water";
